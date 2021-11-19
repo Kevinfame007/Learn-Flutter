@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  var app = MaterialApp(
-    title: "My App",
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text("MAZUMA"),
+  runApp(MyApp());
+}
+
+// Create My Own Widget
+class MyApp extends StatelessWidget {
+  // const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "My App",
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("MAZUMA Attendance Time App"),
+        ),
+        body: Text("HELLO MAZUMA"),
       ),
-    ),
-  );
-  runApp(app);
+      theme: ThemeData(primarySwatch: Colors.green),
+    );
+  }
 }
