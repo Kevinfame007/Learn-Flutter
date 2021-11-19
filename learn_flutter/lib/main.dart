@@ -16,9 +16,14 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("MAZUMA Attendance Time App"),
         ),
-        body: Text("HELLO MAZUMA"),
+        body: Center(
+          child: Text(
+            "HELLO MAZUMA",
+            style: TextStyle(fontSize: 30, color: Colors.greenAccent),
+          ),
+        ),
       ),
-      theme: ThemeData(primarySwatch: Colors.green),
+      theme: ThemeData(primarySwatch: Colors.lightGreen),
     );
   }
 }
