@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
       title: "My App",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("MAZUMA Attendance Time App"),
+          title: Text("mazuma Attendance Time App"),
         ),
         body: Center(
           child: Text(
-            "HELLO MAZUMA",
+            "hello mazuma",
             style: TextStyle(fontSize: 30, color: Colors.greenAccent),
           ),
         ),
