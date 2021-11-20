@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
           title: Text("mazuma Attendance Time App"),
         ),
         body: Center(
-          child: Text(
-            "hello mazuma",
-            style: TextStyle(fontSize: 30, color: Colors.greenAccent),
+          child: Image(
+            image: NetworkImage(
+                "https://cdn.pixabay.com/photo/2021/10/05/14/32/ocean-6682870__340.jpg"),
           ),
         ),
       ),
