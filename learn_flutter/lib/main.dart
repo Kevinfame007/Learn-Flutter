@@ -17,9 +17,13 @@ class MyApp extends StatelessWidget {
           title: Text("mazuma Attendance Time App"),
         ),
         body: Center(
-          child: Image(
-            image: NetworkImage(
-                "https://cdn.pixabay.com/photo/2021/10/05/14/32/ocean-6682870__340.jpg"),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("mazuma"),
+              Text("mazuma th"),
+              Text("mazuma thailand"),
+            ],
           ),
         ),
       ),
