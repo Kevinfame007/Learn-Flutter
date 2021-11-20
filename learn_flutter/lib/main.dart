@@ -42,38 +42,32 @@ class _MyHomePageState extends State<MyHomePage>
     _controller.dispose();
   }
 
+  //Display and Lauch App
   @override
   Widget build(BuildContext context) {
-    
-    //Group of Text
-    List<Widget> data = [];
-
-    for (var i = 0; i < 10; i++) {
-      data.add(
-        Text("รายการที่ ${i+1}"),
-      );
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: Text("mazuma"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: data,
+        child: ListView(
+          children: getData(10),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: addnumber,
-        child: Icon(Icons.add),
       ),
     );
   }
 
-  void addnumber() {
-    setState(() {
-      number++;
-    });
+  //Text and Info
+  List<Widget> getData(int count) {
+    List<Widget> data = [];
+    for (var i = 0; i < 10; i++) {
+      data.add(
+        Text(
+          "รายการที่ ${i + 1}",
+          style: TextStyle(fontSize: 25),
+        ),
+      );
+    }
+    return data;
   }
 }
