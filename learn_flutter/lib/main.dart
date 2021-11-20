@@ -44,20 +44,24 @@ class _MyHomePageState extends State<MyHomePage>
 
   @override
   Widget build(BuildContext context) {
+    
+    //Group of Text
+    List<Widget> data = [];
+
+    for (var i = 0; i < 10; i++) {
+      data.add(
+        Text("รายการที่ ${i+1}"),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text("mazuma"),
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("กดปุ่มเพื่อเพิ่มจำนวนตัวเลข"),
-            Text(
-              number.toString(),
-              style: TextStyle(fontSize: 60),
-            ),
-          ],
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: data,
         ),
       ),
       floatingActionButton: FloatingActionButton(
