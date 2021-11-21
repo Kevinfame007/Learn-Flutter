@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'PdMenu.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,7 +29,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  int number = 0;
 
   @override
   void initState() {
@@ -42,6 +42,13 @@ class _MyHomePageState extends State<MyHomePage>
     _controller.dispose();
   }
 
+  //Group of info
+  List<PdMenu> menu = [
+    PdMenu("เครื่องกรองน้ำ รุ่น AQ-3", "2,100"),
+    PdMenu("เครื่องกรองน้ำแบบสวมปลายก๊อก รุ่น TORAY SX-705V", "2,990"),
+    PdMenu("เครื่องกรองน้ำ รุ่น AQ-50 UF", "4,390"),
+  ];
+
   //Display and Lauch App
   @override
   Widget build(BuildContext context) {
@@ -50,30 +57,22 @@ class _MyHomePageState extends State<MyHomePage>
           title: Text("mazuma"),
         ),
         body: ListView.builder(
-            itemCount: 15,
+            itemCount: menu.length,
             itemBuilder: (
               BuildContext context,
               int index,
             ) {
+              PdMenu product = menu[index];
               return ListTile(
-                title: Text("รายการที่ ${index + 1}"),
+                title: Text(
+                  product.name,
+                  style: TextStyle(fontSize: 25),
+                ),
+                subtitle: Text(
+                  "ราคา " + product.price + " บาท",
+                  style: TextStyle(fontSize: 20),
+                ),
               );
             }));
   }
-
-  // //Text and Info
-  // List<Widget> getData(int count) {
-  //   List<Widget> data = [];
-  //   for (var i = 0; i < count; i++) {
-  //     var menu = ListTile(
-  //       title: Text(
-  //         "รายการที่ ${i + 1}",
-  //         style: TextStyle(fontSize: 25),
-  //       ),
-  //       subtitle: Text("รายการย่อยที่ ${i + 1}"),
-  //     );
-  //     data.add(menu);
-  //   }
-  //   return data;
-  // }
 }
