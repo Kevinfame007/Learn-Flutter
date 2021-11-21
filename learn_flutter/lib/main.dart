@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'PdMenu.dart';
 
@@ -49,27 +51,43 @@ class _MyHomePageState extends State<MyHomePage>
       appBar: AppBar(
         title: Text("MZM"),
       ),
-      body: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.greenAccent,
-                borderRadius: BorderRadius.circular(20)),
-            height: 100,
-          ),
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(20)),
-            height: 100,
-          ),
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.orangeAccent,
-                borderRadius: BorderRadius.circular(20)),
-            height: 100,
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                  color: Colors.greenAccent,
+                  borderRadius: BorderRadius.circular(20)),
+              height: 100,
+              child: Row(
+                children: [
+                  Text(
+                    "รายการสิ้นค้า 1 ",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  Text(
+                    " ราคา 3000",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.blueAccent,
+                  borderRadius: BorderRadius.circular(20)),
+              height: 100,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.orangeAccent,
+                  borderRadius: BorderRadius.circular(20)),
+              height: 100,
+            ),
+          ],
+        ),
       ),
     );
   }
