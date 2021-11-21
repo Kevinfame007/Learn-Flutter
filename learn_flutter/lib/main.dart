@@ -46,30 +46,34 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("mazuma"),
-      ),
-      body: Center(
-        child: ListView(
-          children: getData(20),
+        appBar: AppBar(
+          title: Text("mazuma"),
         ),
-      ),
-    );
+        body: ListView.builder(
+            itemCount: 15,
+            itemBuilder: (
+              BuildContext context,
+              int index,
+            ) {
+              return ListTile(
+                title: Text("รายการที่ ${index + 1}"),
+              );
+            }));
   }
 
-  //Text and Info
-  List<Widget> getData(int count) {
-    List<Widget> data = [];
-    for (var i = 0; i < count; i++) {
-      var menu = ListTile(
-        title: Text(
-          "รายการที่ ${i + 1}",
-          style: TextStyle(fontSize: 25),
-        ),
-        subtitle: Text("รายการย่อยที่ ${i + 1}"),
-      );
-      data.add(menu);
-    }
-    return data;
-  }
+  // //Text and Info
+  // List<Widget> getData(int count) {
+  //   List<Widget> data = [];
+  //   for (var i = 0; i < count; i++) {
+  //     var menu = ListTile(
+  //       title: Text(
+  //         "รายการที่ ${i + 1}",
+  //         style: TextStyle(fontSize: 25),
+  //       ),
+  //       subtitle: Text("รายการย่อยที่ ${i + 1}"),
+  //     );
+  //     data.add(menu);
+  //   }
+  //   return data;
+  // }
 }
