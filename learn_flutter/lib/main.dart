@@ -44,9 +44,12 @@ class _MyHomePageState extends State<MyHomePage>
 
   //Group of info
   List<PdMenu> menu = [
-    PdMenu("เครื่องกรองน้ำ รุ่น AQ-3", "2,100", "assets/ProductImages/AQ-3.jpg"),
-    PdMenu("เครื่องกรองน้ำแบบสวมปลายก๊อก รุ่น TORAY SX-705V", "2,990", "assets/ProductImages/AQ-50-UF.jpg"),
-    PdMenu("เครื่องกรองน้ำ รุ่น AQ-50 UF", "4,390", "assets/ProductImages/TORAY-SX-705V.jpg"),
+    PdMenu(
+        "เครื่องกรองน้ำ รุ่น AQ-3", "2,100", "assets/ProductImages/AQ-3.jpg"),
+    PdMenu("เครื่องกรองน้ำแบบสวมปลายก๊อก รุ่น TORAY SX-705V", "2,990",
+        "assets/ProductImages/AQ-50-UF.jpg"),
+    PdMenu("เครื่องกรองน้ำ รุ่น AQ-50 UF", "4,390",
+        "assets/ProductImages/TORAY-SX-705V.jpg"),
   ];
 
   //Display and Lauch App
@@ -73,6 +76,9 @@ class _MyHomePageState extends State<MyHomePage>
                   "ราคา " + product.price + " บาท",
                   style: TextStyle(fontSize: 15),
                 ),
+                onTap: (){
+                  print("คุณเลือกสิ้นค้า = " + product.name);
+                },
               );
             }));
   }
