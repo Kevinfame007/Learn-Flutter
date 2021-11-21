@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 //Create Your Own Template Contrainer
 class InfoBox extends StatelessWidget {
@@ -29,7 +30,7 @@ class InfoBox extends StatelessWidget {
           ),
           Expanded(
             child: Text(
-              amount.toString(),
+              '${NumberFormat("#,###,###.##").format(amount)}',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
