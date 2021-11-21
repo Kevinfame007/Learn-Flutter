@@ -64,23 +64,56 @@ class _MyHomePageState extends State<MyHomePage>
             Container(
               padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
-                  color: Colors.lightGreen,
+                  color: Colors.green,
                   borderRadius: BorderRadius.circular(10)),
               height: 120,
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "รายการสิ้นค้า 1 ",
+                    "เวลาเข้า ",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  Expanded(
+                    child: Text(
+                      " 10:00 น.",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.right,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(10)),
+              height: 120,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
                   Text(
-                    " ราคา 3000",
+                    "เวลาออก ",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      " 17:30 น.",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.right,
                     ),
                   ),
                 ],
