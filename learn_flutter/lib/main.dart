@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage>
       ),
       body: Center(
         child: ListView(
-          children: getData(10),
+          children: getData(20),
         ),
       ),
     );
@@ -60,13 +60,15 @@ class _MyHomePageState extends State<MyHomePage>
   //Text and Info
   List<Widget> getData(int count) {
     List<Widget> data = [];
-    for (var i = 0; i < 10; i++) {
-      data.add(
-        Text(
+    for (var i = 0; i < count; i++) {
+      var menu = ListTile(
+        title: Text(
           "รายการที่ ${i + 1}",
           style: TextStyle(fontSize: 25),
         ),
+        subtitle: Text("รายการย่อยที่ ${i + 1}"),
       );
+      data.add(menu);
     }
     return data;
   }
