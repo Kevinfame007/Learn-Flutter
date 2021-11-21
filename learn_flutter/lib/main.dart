@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage>
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
+            SizedBox(height: 5,),
             Container(
               padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
@@ -90,8 +91,9 @@ class _MyHomePageState extends State<MyHomePage>
                 ],
               ),
             ),
+            SizedBox(height: 10,),
             Container(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                   color: Colors.red,
                   borderRadius: BorderRadius.circular(10)),
