@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'PdMenu.dart';
+import 'InfoBox.dart';
 
 void main() {
   runApp(MyApp());
@@ -61,66 +61,13 @@ class _MyHomePageState extends State<MyHomePage>
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            SizedBox(height: 5,),
-            Container(
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(10)),
-              height: 120,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "เวลาเข้า ",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      " 10:00 น.",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.right,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            InfoBox("ยอดคงเหลือ", 12000, Colors.blue, 120),
             SizedBox(height: 10,),
-            Container(
-              padding: const EdgeInsets.all(10.0),
-              decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(10)),
-              height: 120,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "เวลาออก ",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      " 17:30 น.",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.right,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            InfoBox("รายรับ", 12000, Colors.green, 120),
+            SizedBox(height: 10,),
+            InfoBox("รายจ่าย", 12000, Colors.red, 120),
+            SizedBox(height: 10,),
+            InfoBox("ค้่างชำระ", 5000, Colors.orange, 120),
           ],
         ),
       ),
