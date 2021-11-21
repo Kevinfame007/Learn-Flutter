@@ -49,7 +49,13 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("MZM"),
+        title: Text(
+          "My Account",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -58,33 +64,60 @@ class _MyHomePageState extends State<MyHomePage>
             Container(
               padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
-                  color: Colors.greenAccent,
-                  borderRadius: BorderRadius.circular(20)),
-              height: 100,
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(10)),
+              height: 120,
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "รายการสิ้นค้า 1 ",
-                    style: TextStyle(fontSize: 20),
+                    "เวลาเข้า ",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  Text(
-                    " ราคา 3000",
-                    style: TextStyle(fontSize: 20),
+                  Expanded(
+                    child: Text(
+                      " 10:00 น.",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.right,
+                    ),
                   ),
                 ],
               ),
             ),
             Container(
+              padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(20)),
-              height: 100,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.orangeAccent,
-                  borderRadius: BorderRadius.circular(20)),
-              height: 100,
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(10)),
+              height: 120,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "เวลาออก ",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      " 17:30 น.",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.right,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
