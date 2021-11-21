@@ -44,9 +44,9 @@ class _MyHomePageState extends State<MyHomePage>
 
   //Group of info
   List<PdMenu> menu = [
-    PdMenu("เครื่องกรองน้ำ รุ่น AQ-3", "2,100"),
-    PdMenu("เครื่องกรองน้ำแบบสวมปลายก๊อก รุ่น TORAY SX-705V", "2,990"),
-    PdMenu("เครื่องกรองน้ำ รุ่น AQ-50 UF", "4,390"),
+    PdMenu("เครื่องกรองน้ำ รุ่น AQ-3", "2,100", "assets/ProductImages/AQ-3.jpg"),
+    PdMenu("เครื่องกรองน้ำแบบสวมปลายก๊อก รุ่น TORAY SX-705V", "2,990", "assets/ProductImages/AQ-50-UF.jpg"),
+    PdMenu("เครื่องกรองน้ำ รุ่น AQ-50 UF", "4,390", "assets/ProductImages/TORAY-SX-705V.jpg"),
   ];
 
   //Display and Lauch App
@@ -64,13 +64,14 @@ class _MyHomePageState extends State<MyHomePage>
             ) {
               PdMenu product = menu[index];
               return ListTile(
+                leading: Image.asset(product.image),
                 title: Text(
                   product.name,
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(fontSize: 20),
                 ),
                 subtitle: Text(
                   "ราคา " + product.price + " บาท",
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 15),
                 ),
               );
             }));
