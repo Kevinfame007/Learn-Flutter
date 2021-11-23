@@ -3,13 +3,13 @@ import 'package:intl/intl.dart';
 
 //Create Your Own Template Contrainer
 class InfoBox extends StatelessWidget {
-
   String title;
   double amount;
   Color color;
   double size;
+  String currency;
 
-  InfoBox(this.title,this.amount,this.color,this.size);
+  InfoBox(this.title, this.amount, this.color, this.size, this.currency);
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +36,13 @@ class InfoBox extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.right,
+            ),
+          ),
+          Text(
+            currency,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],
