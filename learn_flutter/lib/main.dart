@@ -7,7 +7,7 @@ void main() {
 
 // Create My Own Widget
 class MyApp extends StatelessWidget {
-  // const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,13 +59,19 @@ class _MyHomePageState extends State<MyHomePage>
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            InfoBox("ยอดคงเหลือ", 12000.00, Colors.blue, 120),
-            SizedBox(height: 10,),
-            InfoBox("รายรับ", 12000.11, Colors.green, 120),
-            SizedBox(height: 10,),
-            InfoBox("รายจ่าย", 12000.00, Colors.red, 120),
-            SizedBox(height: 10,),
-            InfoBox("ค้่างชำระ", 5000.00, Colors.orange, 120),
+            InfoBox("ยอดคงเหลือ", 12000.00, Colors.blue, 120, " บาท"),
+            SizedBox(
+              height: 10,
+            ),
+            InfoBox("รายรับ", 12000.11, Colors.green, 120, " บาท"),
+            SizedBox(
+              height: 10,
+            ),
+            InfoBox("รายจ่าย", 12000.00, Colors.red, 120, " บาท"),
+            SizedBox(
+              height: 10,
+            ),
+            InfoBox("ค้่างชำระ", 5000.00, Colors.orange, 120, " บาท"),
           ],
         ),
       ),
