@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'InfoBox.dart';
 
@@ -30,9 +31,12 @@ class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
+  int number = 0;
+
   @override
   void initState() {
     super.initState();
+    print("Call init state");
     _controller = AnimationController(vsync: this);
   }
 
@@ -45,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage>
   //Display and Lauch App
   @override
   Widget build(BuildContext context) {
+    print("call build");
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -55,25 +60,21 @@ class _MyHomePageState extends State<MyHomePage>
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            InfoBox("ยอดคงเหลือ", 12000.00, Colors.blue, 120, " บาท"),
-            SizedBox(
-              height: 10,
-            ),
-            InfoBox("รายรับ", 12000.11, Colors.green, 120, " บาท"),
-            SizedBox(
-              height: 10,
-            ),
-            InfoBox("รายจ่าย", 12000.00, Colors.red, 120, " บาท"),
-            SizedBox(
-              height: 10,
-            ),
-            InfoBox("ค้่างชำระ", 5000.00, Colors.orange, 120, " บาท"),
-          ],
-        ),
+      body: Column(
+        children: [
+          Text(
+            number.toString(),
+            style: TextStyle(fontSize: 30),
+          )
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed:() {
+          setState(() {
+            number++;
+          });
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
