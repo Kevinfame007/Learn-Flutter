@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:learn_flutter/ExchangeRate.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,6 +32,8 @@ class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
+  late ExchangeRate _dataFromAPI;
+
   @override
   void initState() {
     super.initState();
@@ -47,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage>
   Future <void> getExchageRate() async{
     var url = Uri.parse("http://api.exchangeratesapi.io/v1/latest?access_key=3a4e4e81f3c21dfdfb5f8b317f2e8fa6&symbols=USD,THB&format=1") ;
     var response = await http.get(url);
-    print(response.body);
+    _dataFromAPI = exchangeRateFromJson(response.body);
   }
 
   //Display and Lauch App
