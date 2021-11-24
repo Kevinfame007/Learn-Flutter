@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'InfoBox.dart';
+// import 'InfoBox.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,7 +34,6 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   void initState() {
     super.initState();
-    print("Call init state");
     _controller = AnimationController(vsync: this);
   }
 
@@ -44,14 +43,17 @@ class _MyHomePageState extends State<MyHomePage>
     _controller.dispose();
   }
 
+  void getExchageRate() {
+    print("pull data");
+  }
+
   //Display and Lauch App
   @override
   Widget build(BuildContext context) {
-    print("call build");
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "My Account",
+          "อัตราการแลกเปลี่ยนสกุลเงิน",
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
