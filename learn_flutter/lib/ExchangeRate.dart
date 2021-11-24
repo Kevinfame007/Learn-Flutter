@@ -17,7 +17,6 @@ class ExchangeRate {
     bool success;
     int timestamp;
     String base;
-    DateTime date;
     DateTime? date;
     Map<String, double>? rates;
 
