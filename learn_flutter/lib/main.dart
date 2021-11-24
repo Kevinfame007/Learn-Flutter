@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-// import 'InfoBox.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(MyApp());
@@ -35,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage>
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this);
+    getExchageRate();
   }
 
   @override
@@ -43,8 +44,10 @@ class _MyHomePageState extends State<MyHomePage>
     _controller.dispose();
   }
 
-  void getExchageRate() {
-    print("pull data");
+  Future <void> getExchageRate() async{
+    var url = Uri.parse("http://api.exchangeratesapi.io/v1/latest?access_key=3a4e4e81f3c21dfdfb5f8b317f2e8fa6&symbols=USD,THB&format=1") ;
+    var response = await http.get(url);
+    print(response.body);
   }
 
   //Display and Lauch App
