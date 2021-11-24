@@ -31,8 +31,6 @@ class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
-  int number = 0;
-
   @override
   void initState() {
     super.initState();
@@ -62,19 +60,8 @@ class _MyHomePageState extends State<MyHomePage>
       ),
       body: Column(
         children: [
-          Text(
-            number.toString(),
-            style: TextStyle(fontSize: 30),
-          )
+          
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed:() {
-          setState(() {
-            number++;
-          });
-        },
-        child: Icon(Icons.add),
       ),
     );
   }
