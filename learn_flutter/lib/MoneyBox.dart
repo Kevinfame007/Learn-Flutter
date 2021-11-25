@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 //Create Your Own Template Contrainer
-class InfoBox extends StatelessWidget {
-  String title;
-  double amount;
-  Color color;
-  double size;
-  String currency;
+class MoneyBox extends StatelessWidget {
+  String title;//ชื่อสกุลเงิน currency
+  double amount;//จำนวนเงิน
+  Color color;//สีกล่อง
+  double size;//ขนาด
+  String currency;//สกุล
 
-  InfoBox(this.title, this.amount, this.color, this.size, this.currency);
+  MoneyBox(this.title, this.amount, this.color, this.size, this.currency);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(20.0),
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(10)),
       height: size,

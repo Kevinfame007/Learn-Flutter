@@ -2,8 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:learn_flutter/ExchangeRate.dart';
-// import 'package:http/retry.dart';
-
+import 'MoneyBox.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "MZM App",
+      title: "แอปแปลงสกุลเงิน Currency Transfer",
       home: MyHomePage(),
       theme: ThemeData(primarySwatch: Colors.lightGreen),
     );
@@ -50,18 +49,9 @@ class _MyHomePageState extends State<MyHomePage>
     _controller.dispose();
   }
 
-  // Future<void> RequestDataApi() async {
-  //   final client = RetryClient(http.Client());
-  //   try {
-  //     print(await client.read(Uri.parse('http://api.exchangeratesapi.io/v1/latest?access_key=3a4e4e81f3c21dfdfb5f8b317f2e8fa6&symbols=USD,THB&format=1')));
-  //   } finally {
-  //     client.close();
-  //   }
-  // }
-
   Future <ExchangeRate> getExchageRate() async {
     var url = Uri.parse(
-        "http://api.exchangeratesapi.io/v1/latest?access_key=3a4e4e81f3c21dfdfb5f8b317f2e8fa6&symbols=USD,THB&format=1");
+        "http://api.exchangeratesapi.io/v1/latest?access_key=3a4e4e81f3c21dfdfb5f8b317f2e8fa6&format=1");
     var response = await http.get(url);
     _dataFromAPI = exchangeRateFromJson(response.body);
     return _dataFromAPI;
@@ -85,7 +75,20 @@ class _MyHomePageState extends State<MyHomePage>
         builder: (BuildContext context,AsyncSnapshot<dynamic> snapshot){
           //ถ้าเึงข้อมูลมาครบ
           if (snapshot.connectionState == ConnectionState.done) {
-            return Text("ดึงข้อมูลมาครบแล้ว");
+            var result = snapshot.data;
+            double amount = 100;
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  MoneyBox("สกุลเงิน EUR", 1, Colors.blue, 150, " eur"),
+                  SizedBox(height: 5,),
+                  MoneyBox("THB", amount * result.rates["THB"], Colors.green, 150, " บาท"),
+                  SizedBox(height: 5,),
+                  MoneyBox("USD", amount * result.rates["USD"], Colors.red, 150, " usd"),
+                ],
+              ),
+            );
           }
           return LinearProgressIndicator();
         },)
