@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:learn_flutter/ExchangeRate.dart';
+// import 'package:http/retry.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -38,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage>
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this);
+    // RequestDataApi();
     getExchageRate();
   }
 
@@ -47,10 +50,21 @@ class _MyHomePageState extends State<MyHomePage>
     _controller.dispose();
   }
 
-  Future <void> getExchageRate() async{
-    var url = Uri.parse("http://api.exchangeratesapi.io/v1/latest?access_key=3a4e4e81f3c21dfdfb5f8b317f2e8fa6&symbols=USD,THB&format=1") ;
+  // Future<void> RequestDataApi() async {
+  //   final client = RetryClient(http.Client());
+  //   try {
+  //     print(await client.read(Uri.parse('http://api.exchangeratesapi.io/v1/latest?access_key=3a4e4e81f3c21dfdfb5f8b317f2e8fa6&symbols=USD,THB&format=1')));
+  //   } finally {
+  //     client.close();
+  //   }
+  // }
+
+  Future <ExchangeRate> getExchageRate() async {
+    var url = Uri.parse(
+        "http://api.exchangeratesapi.io/v1/latest?access_key=3a4e4e81f3c21dfdfb5f8b317f2e8fa6&symbols=USD,THB&format=1");
     var response = await http.get(url);
     _dataFromAPI = exchangeRateFromJson(response.body);
+    return _dataFromAPI;
   }
 
   //Display and Lauch App
@@ -66,11 +80,16 @@ class _MyHomePageState extends State<MyHomePage>
           ),
         ),
       ),
-      body: Column(
-        children: [
-          
-        ],
-      ),
-    );
+      body: FutureBuilder(
+        future: getExchageRate(),
+        builder: (BuildContext context,AsyncSnapshot<dynamic> snapshot){
+          //ถ้าเึงข้อมูลมาครบ
+          if (snapshot.connectionState == ConnectionState.done) {
+            return Text("ดึงข้อมูลมาครบแล้ว");
+          }
+          return LinearProgressIndicator();
+        },)
+      );
+    
   }
 }
