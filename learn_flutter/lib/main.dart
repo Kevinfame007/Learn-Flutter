@@ -47,10 +47,13 @@ class _MyHomePageState extends State<MyHomePage>
     _controller.dispose();
   }
 
-  Future <void> getExchageRate() async{
-    var url = Uri.parse("http://api.exchangeratesapi.io/v1/latest?access_key=3a4e4e81f3c21dfdfb5f8b317f2e8fa6&symbols=USD,THB&format=1") ;
+  Future<void> getExchageRate() async {
+    var url = Uri.parse(
+        "http://api.exchangeratesapi.io/v1/latest?access_key=3a4e4e81f3c21dfdfb5f8b317f2e8fa6&symbols=USD,THB&format=1");
     var response = await http.get(url);
-    _dataFromAPI = exchangeRateFromJson(response.body);
+    setState(() {
+      _dataFromAPI = exchangeRateFromJson(response.body);
+    });
   }
 
   //Display and Lauch App
@@ -68,7 +71,8 @@ class _MyHomePageState extends State<MyHomePage>
       ),
       body: Column(
         children: [
-          
+          LinearProgressIndicator(),
+          Text(_dataFromAPI.base),
         ],
       ),
     );
