@@ -1,5 +1,7 @@
 import 'package:meta/meta.dart';
 import 'dart:convert';
+import 'package:http/retry.dart';
+
 
 ExchangeRate exchangeRateFromJson(String str) => ExchangeRate.fromJson(json.decode(str));
 
